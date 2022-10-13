@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function createDreamTeam(arr) {
   let secret = '';
-  if (arr.length === 0) {
+  if (!Array.isArray(arr)) {
     return false;
   } else {
     for (i = 0; i < arr.length; i++) {
@@ -24,7 +24,7 @@ function createDreamTeam(arr) {
       }
     }
   }
-  return secret === '' ? false : secret.split('').sort().join('').toUpperCase();
+  return secret === '' ? false : secret.toUpperCase().split('').sort().join('');
 }
 
 module.exports = {
