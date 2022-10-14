@@ -23,7 +23,7 @@ function dateSample(str) {
   } else if (typeof str === 'string') {
     let k = 0.693 / HALF_LIFE_PERIOD;
     let t = Math.log(MODERN_ACTIVITY / str) / k;
-    return t === NaN || t === Infinity ? false : Math.ceil(t);
+    return isNaN(t) || t === Infinity ? false : Math.ceil(t);
   } else return false;
 }
 
