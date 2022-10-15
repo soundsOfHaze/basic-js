@@ -22,8 +22,10 @@ function getSeason(date) {
     return (a = 'summer');
   } else if (x.getMonth() >= 8 && x.getMonth() <= 10) {
     return (a = 'fall');
+  } else if (date === undefined) {
+    return (a = `Unable to determine the time of year!`);
   } else {
-    return 'Unable to determine the time of year!';
+    throw new Error('Invalid date!');
   }
 }
 
