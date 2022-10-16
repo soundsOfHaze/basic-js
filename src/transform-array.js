@@ -13,10 +13,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  *
  */
-function transform(arr) {
-  if (!Array.isArray(arr)) {
+function transform(arrB) {
+  if (!Array.isArray(arrB)) {
     throw new Error("'arr' parameter must be an instance of the Array!");
-  } else if (arr[0] === '--discard-prev' || arr[0] === '--double-prev') {
+  }
+  let arr = [];
+  arrB.forEach((e) => arr.push(e));
+
+  if (arr[0] === '--discard-prev' || arr[0] === '--double-prev') {
     arr.shift(0);
   } else if (arr[arr.length - 1] === '--double-next' || arr[arr.length - 1] === '--discard-next') {
     arr.pop();
